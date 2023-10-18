@@ -1,18 +1,121 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
+    <title>Weather app</title>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
   </head>
-  <style>
-    h1 {
-      color: blueviolet;
-      text-align: center;
-    }
-  </style>
   <body>
-    <h1>Hello World</h1>
+    <div class="container">
+      <div class="weather-app">
+        <h1>
+          <i class="fas fa-map-marker-alt"></i>
+          <span id="city"> </span>
+        </h1>
+        <h2 id="currentTime"></h2>
+        <h3>
+          <span class="temperature" id="temperature"></span>
+          <span class="units">
+            <a href="#" id="celsius-link">°C</a>
+            | <a href="#" id="fahrenheit-link">°F</a>
+          </span>
+          <div class="feels">
+            <span>Feels like </span><span id="feels-like"></span><span>°C</span>
+          </div>
+        </h3>
+        <h4>
+          <img src="img/cloud.png" alt="" />
+          <span id="description"></span>
+        </h4>
+        <div class="row">
+          <div class="col-4">
+            Humidity
+            <div><span id="humidity"></span> <span>%</span></div>
+          </div>
+          <div class="col-4">
+            Wind
+            <div><span id="wind"></span> <span>km/h</span></div>
+          </div>
+          <div class="col-4">
+            Pressure
+            <div><span id="pressure"></span> <span>mb</span></div>
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <div class="col">
+            <span id="day2"></span>
+            <div>18°C</div>
+            <img src="img/cloud.png" alt="" class="small-weather" />
+          </div>
+          <div class="col">
+            <span id="day3"></span>
+            <div>20°C</div>
+            <img src="img/sun.png" alt="" class="small-weather" />
+          </div>
+          <div class="col">
+            <span id="day4"></span>
+            <div>18°C</div>
+            <img src="img/cloud.png" alt="" class="small-weather" />
+          </div>
+          <div class="col">
+            <span id="day5"></span>
+            <div>17°C</div>
+            <img src="img/wind.png" alt="" class="small-weather" />
+          </div>
+          <div class="col">
+            <span id="day6"></span>
+            <div>15°C</div>
+            <img src="img/rain.png" alt="" class="small-weather" />
+          </div>
+        </div>
+        <br />
+        <form class="search-form" id="city-form">
+          <div class="row">
+            <div class="col-6">
+              <input
+                id="city-input"
+                type="search"
+                placeholder="Type a city ..."
+                autofocus="on"
+                autocomplete="off"
+                class="form-control shadow-sm"
+              />
+            </div>
+            <div class="col-3">
+              <input
+                id="searchbutton"
+                type="submit"
+                value="Search"
+                class="form-control btn btn-primary shadow-sm"
+              />
+            </div>
+            <div class="col-3">
+              <input
+                id="currentbutton"
+                type="submit"
+                value="Current"
+                class="form-control btn btn-primary shadow-sm"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
   </body>
-  <script></script>
 </html>
